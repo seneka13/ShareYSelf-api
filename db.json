@@ -1,0 +1,69 @@
+{
+  "users": [
+    {
+      "token": "token_bhje73bkj38jlds9",
+      "data": {
+        "id": "fsdu274dHsw",
+        "username": "admin",
+        "password": "1234",
+        "firstname": "John",
+        "lastname": "Smith"
+      }
+    },
+    {
+      "data": {
+        "id": "9Sz7h8oLZ",
+        "firstname": "Sam",
+        "lastname": "login",
+        "username": "Sam",
+        "password": "1234"
+      },
+      "token": "token_NlB9rl2vTB"
+    },
+    {
+      "data": {
+        "id": "JogbS88l5",
+        "firstname": "Самат",
+        "lastname": "Мусаев",
+        "username": "Sam13",
+        "password": "130293"
+      },
+      "token": "token_t4LABRT7mz"
+    }
+  ],
+  "events": [
+    {
+      "data": {
+        "id": "kskl32sk32ld",
+        "eventname": "Музыкальный круг",
+        "location": "Театр оперы и балета",
+        "date": "2021-06-10",
+        "time": "20:40",
+        "desc": "Фестиваль музыкальных театров России «Видеть музыку», придуманный и реализованный знаменитым режиссером Георгием Исаакяном, проходит в Москве уже в четвертый раз. За два месяца (с середины сентября по середину ноября) на столичных площадках будет показано около сорока спектаклей со всех концов России и даже из-за рубежа – после долгого перерыва на гастроли в столицу России приедет Донецкий театр оперы и балета.",
+        "author": "John Smith"
+      }
+    },
+    {
+      "data": {
+        "id": "b48HcPv4z",
+        "eventname": "Курс познания себя",
+        "location": "Курс познания себя",
+        "date": "2020-07-10",
+        "time": "01:08",
+        "desc": "sdasdsadasda",
+        "author": "Samat Musaev"
+      }
+    },
+    {
+      "data": {
+        "id": "tRNS-CWi2",
+        "eventname": "fdsfsf",
+        "location": "dsadada",
+        "date": "2020-08-01",
+        "time": "22:10",
+        "desc": "dsdasda",
+        "author": "Samat Musaev"
+      }
+    }
+  ]
+}
