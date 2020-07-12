@@ -21,6 +21,8 @@ app.get('/data', authRoutes.userOn)
 
 app.get('/get-events', eventRoutes.getEvent)
 app.post('/create-event', eventRoutes.createEvent)
+app.delete('/delete-event/:id', eventRoutes.deleteEvent)
+app.put('/edit-event/:id', eventRoutes.editEvent)
 
 
 
