@@ -17,8 +17,8 @@ app.use(express.json())
 
 app.post('/login', authRoutes.login)
 app.post('/signup', authRoutes.signup)
-app.get('/get-user', authRoutes.userOn)
-app.get('/edit-user', authRoutes.userOn)
+app.get('/get-user', authRoutes.getUser)
+app.get('/edit-user', authRoutes.editUser)
 
 app.get('/get-events', eventRoutes.getEvent)
 app.post('/create-event', eventRoutes.createEvent)

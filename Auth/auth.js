@@ -18,7 +18,7 @@ const login = (req, res) => {
   if (!username) return error(res, 400, 'username attribute is required')
   if (!password) return error(res, 400, 'password attribute is required')
 
-  const user = db.get('users').find({ data: { username, password } }).value()
+  const user = db.get('users').find({username, password }).value()
   if (!user) return error(res, 403, 'incorrect login data')
   res.send({ user })
 }
@@ -30,15 +30,14 @@ const signup = (req, res) => {
   if (!username) return error(res, 400, 'username attribute is required')
   if (!password) return error(res, 400, 'password attribute is required')
 
-  const existed = db.get('users').find({ data: { username } }).value()
+  const existed = db.get('users').find({ username }).value()
   if (existed) return error(res, 400, 'user with this username already exists')
 
   if (!password) return error(res, 400, 'password attribute is required')
   const id = shortid.generate()
-  const data = { id, firstname, lastname, username, password }
 
-  db.get('users').push({ data, token: `token_${shortid.generate()}` }).write()
-  const user = db.get('users').find({ data: { username, password } }).value()
+  db.get('users').push({ id, firstname, lastname, username, password, token: `token_${shortid.generate()}` }).write()
+  const user = db.get('users').find({ username, password }).value()
   res.send({ user })
 }
 
@@ -50,9 +49,9 @@ const editUser =  (req, res) => {
   if (!username) return error(res, 400, 'username attribute is required')
   if (!password) return error(res, 400, 'password attribute is required')
 
-  const user = db.get('users').find({ data: {id} }).value()
+  const user = db.get('users').find({id}).value()
   if (!user) return res.status(404).json('event not found')
-  db.get('users').find({ data: {id} }).assign({data: {id, eventname, place, date, time, desc, author}}).write()
+  db.get('users').find({ id }).assign({id, eventname, place, date, time, desc, author}).write()
   res.status(200).json('Succes update').end()
 }
 
