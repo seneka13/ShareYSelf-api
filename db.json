@@ -75,6 +75,28 @@
         "desc": "dsadad",
         "author": "Самат Мусаев"
       }
+    },
+    {
+      "data": {
+        "id": "VNZQTq_ed",
+        "eventname": "Курс познания себя",
+        "place": "Курс познания себя",
+        "date": "2020-07-16",
+        "time": "16:01",
+        "desc": "dsadada",
+        "author": "Самат Мусаев"
+      }
+    },
+    {
+      "data": {
+        "id": "7lrjMgCUL",
+        "eventname": "Курс познания себя",
+        "place": "dsadad",
+        "date": "2020-07-17",
+        "time": "16:03",
+        "desc": "dsadad",
+        "author": "Самат Мусаев"
+      }
     }
   ]
 }

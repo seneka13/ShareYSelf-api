@@ -5,7 +5,7 @@ const adapter = new FileSync('db.json')
 const db = low(adapter)
 const error = (res, status, text) => res.status(status).json(text).end()
 
-const userOn = (req, res) => {
+const getUser = (req, res) => {
   const token = req.get('X-Auth')
   const isAuth = db.get('users').find({ token }).value()
   if (!isAuth) return error(res, 403, 'Access is denied')
@@ -42,9 +42,25 @@ const signup = (req, res) => {
   res.send({ user })
 }
 
+const editUser =  (req, res) => {
+  const id = req.params.id
+  const { username, firstname, lastname, password} = req.body
+  if (!firstname) return error(res, 400, 'firstname attribute is required')
+  if (!lastname) return error(res, 400, 'lastname attribute is required')
+  if (!username) return error(res, 400, 'username attribute is required')
+  if (!password) return error(res, 400, 'password attribute is required')
+
+  const user = db.get('users').find({ data: {id} }).value()
+  if (!user) return res.status(404).json('event not found')
+  db.get('users').find({ data: {id} }).assign({data: {id, eventname, place, date, time, desc, author}}).write()
+  res.status(200).json('Succes update').end()
+}
+
+
 
 module.exports = {
     login,
     signup,
-    userOn
+    getUser,
+    editUser
   }
