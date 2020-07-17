@@ -1,4 +1,4 @@
-# Фейковый API для сайта ToMySelf
+# Фейковый API для веб приложения ShareYSelf
 
 ### Запуск
 
@@ -13,21 +13,23 @@ npm start
 npm install
 ```
 
-Запускается на порту 5432
+### API запускается на порту 8220
 
 
-### Роутинг
+## Роутинг пользователя
 
-> `GET` /data
 
-отдает вам текст, если вы авторизованы
+### Получение данных
 
-для подтверждения авторизации отправляйте в запросе заголовок: `X-Auth:  ${your_token}`
+> `GET` /get-user
 
+Получает данные пользователя при регистрации или входе.
+Для подтверждения авторизации отправляйте в запросе заголовок: `X-Auth:  ${your_token}`
+
+
+### Вход 
 
 > `POST` /login
-
-вход 
 
 ```sh
 body: {
@@ -37,7 +39,9 @@ body: {
 ```
 
 
-> `POST` /signin
+### Регистрация
+
+> `POST` /signup
 
 ```sh
 body: {
@@ -48,7 +52,17 @@ body: {
 }
 ```
 
-регистрация
+
+### Изменение пароля
+
+`PUT` /edit-password/:id
+
+```sh
+ body: {
+  id: string (required)
+  password: string (required),
+}
+```
 
 
 #### По умолчанию есть зарегистрированный пользователь
@@ -57,3 +71,60 @@ body: {
 username: 'admin'
 password: '1234'
 ```
+
+
+
+
+## Роутинг событий
+
+### Получение данных
+
+> `GET` /get-events
+
+Получает данные всех созданных событий
+
+
+### Создание события
+
+> `POST` /create-event
+
+```sh
+body: {
+      id: string (required),
+      eventname: string (required),
+      place: string (required),
+      date: string (required),
+      time: string (required),
+      desc: string (required),
+      author: string (required),
+}
+```
+
+
+### Удаление события
+
+> `DELETE` /delete-event/:id
+
+```sh
+body: {
+      id: string (required),
+}
+```
+
+
+### Изменение события
+
+> `PUT` /edit-event/:id
+
+```sh
+body: {
+      id: string (required),
+      eventname: string (required),
+      place: string (required),
+      date: string (required),
+      time: string (required),
+      desc: string (required),
+      author: string (required),
+}
+```
+
