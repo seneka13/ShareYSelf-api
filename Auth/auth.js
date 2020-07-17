@@ -35,23 +35,34 @@ const signup = (req, res) => {
 
   if (!password) return error(res, 400, 'password attribute is required')
   const id = shortid.generate()
+  const avatar = ''
 
-  db.get('users').push({ id, firstname, lastname, username, password, token: `token_${shortid.generate()}` }).write()
+  db.get('users').push({ id, firstname, lastname, username, password, token: `token_${shortid.generate()}`, avatar }).write()
   const user = db.get('users').find({ username, password }).value()
   res.send({ user })
 }
 
-const editUser =  (req, res) => {
+const editPassword =  (req, res) => {
   const id = req.params.id
-  const { username, firstname, lastname, password} = req.body
-  if (!firstname) return error(res, 400, 'firstname attribute is required')
-  if (!lastname) return error(res, 400, 'lastname attribute is required')
-  if (!username) return error(res, 400, 'username attribute is required')
+  const {password} = req.body
   if (!password) return error(res, 400, 'password attribute is required')
+  console.log(password)
 
   const user = db.get('users').find({id}).value()
-  if (!user) return res.status(404).json('event not found')
-  db.get('users').find({ id }).assign({id, eventname, place, date, time, desc, author}).write()
+  if (!user) return res.status(404).json('user not found')
+  db.get('users').find({ id }).assign({password}).write()
+  res.status(200).json('Succes update').end()
+}
+
+const addAvatar =  (req, res) => {
+  const id = req.params.id
+  const {avatar} = req.body
+  if (!avatar) return error(res, 400, 'avatar attribute is required')
+  console.log(avatar)
+
+  const user = db.get('users').find({id}).value()
+  if (!user) return res.status(404).json('user not found')
+  db.get('users').find({ id }).assign({avatar}).write()
   res.status(200).json('Succes update').end()
 }
 
@@ -61,5 +72,6 @@ module.exports = {
     login,
     signup,
     getUser,
-    editUser
+    editPassword,
+    addAvatar,
   }

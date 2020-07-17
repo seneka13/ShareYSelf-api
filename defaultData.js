@@ -6,6 +6,7 @@ module.exports = {
     password: '1234',
     firstname: 'John',
     lastname: 'Smith',
+    avatar: ''
   }],
   events: [{
       id:'kskl32sk32ld',
