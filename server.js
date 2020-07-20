@@ -19,6 +19,7 @@ app.post('/login', authRoutes.login)
 app.post('/signup', authRoutes.signup)
 app.get('/get-user', authRoutes.getUser)
 app.put('/edit-password/:id', authRoutes.editPassword)
+app.put('/add-avatar/:id', authRoutes.addAvatar)
 
 
 app.get('/get-events', eventRoutes.getEvent)
