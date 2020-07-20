@@ -58,7 +58,6 @@ const addAvatar =  (req, res) => {
   const id = req.params.id
   const {avatar} = req.body
   if (!avatar) return error(res, 400, 'avatar attribute is required')
-  console.log(avatar)
 
   const user = db.get('users').find({id}).value()
   if (!user) return res.status(404).json('user not found')
